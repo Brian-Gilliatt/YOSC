@@ -5,8 +5,8 @@
         <item android:title="Programme">
         <menu>
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:id="@+id/nav_sailboat"
+            android:icon="@drawable/ic_sailboat"
 
             android:title="@string/sailing_events_title" />
         <item
@@ -29,7 +29,7 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_menu_camera"
                 android:title="Photo" />
             <item
                 android:id="@+id/nav_send"

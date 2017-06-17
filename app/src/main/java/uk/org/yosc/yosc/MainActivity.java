@@ -1,20 +1,13 @@
 package uk.org.yosc.yosc;
 
-import android.app.ActionBar;
-import android.app.Activity;
-
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.SearchManager;
 import android.content.Intent;
 
 
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 
-import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
 
 //import android.support.v4.app.Fragment;
@@ -24,27 +17,10 @@ import android.support.v4.widget.DrawerLayout;
 //import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import java.util.Locale;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -118,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_sailboat) {
             // Handle the camera action
             Intent sailingIntent = new Intent(this, SailingEventsActivity.class);
             //           EditText editText = (EditText) findViewById(R.id.editText);
@@ -138,6 +114,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
+
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://goo.gl/photos/xAKQnAxyMSSZ4Vs88"));
+            startActivity(browserIntent);
+
 
         } else if (id == R.id.nav_send) {
 
