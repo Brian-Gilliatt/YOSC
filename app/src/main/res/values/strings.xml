@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YOSC</string>
+    <string name="app_name">Yateley Offshore Sailing Club</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -105,4 +105,5 @@
     <string name="backdrop_subtitle">This season top 20 albums</string>
     <string name="event_date">Date</string>
     <string name="event_desc">Description</string>
+    <string name="main_image_desc">Picture of sailing yacht Wishstream</string>
 </resources>
