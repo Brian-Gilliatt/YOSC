@@ -18,7 +18,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHolder> {
+public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdapter.MyViewHolder> {
 
         private Context mContext;
         private ArrayList<Event> mEventList;
@@ -28,6 +28,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
             CardView cr;
             public TextView eventDate;
             TextView desc;
+            TextView organiser;
 //            public ImageView thumbnail, overflow;
 
             public MyViewHolder(View view) {
@@ -35,19 +36,21 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 //                cr = (CardView) view.findViewById(R.id.card_view);
                 eventDate = (TextView) view.findViewById(R.id.event_date);
                 desc = (TextView) view.findViewById(R.id.event_desc);
+                organiser = (TextView) view.findViewById(R.id.event_organiser);
+
 //                thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
 //                overflow = (ImageView) view.findViewById(R.id.overflow);
             }
         }
 
 
-        public EventsAdapter(Context mContext, ArrayList<Event> eventsList) {
+        public SailingEventsAdapter(Context mContext, ArrayList<Event> eventsList) {
             this.mContext = mContext;
             this.mEventList = eventsList;
         }
 
         @Override
-        public EventsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public SailingEventsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
            View itemView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.event_card, parent, false);
 
@@ -71,6 +74,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
             }
                 holder.eventDate.setText(event.getDate());
                 holder.desc.setText(event.getDescription());
+                holder.organiser.setText(event.getOrganizer());
 
 
 
@@ -86,43 +90,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
 */
         }
 
-        /**
-         * Showing popup menu when tapping on 3 dots
-         */
-       /*
-        private void showPopupMenu(View view) {
-            // inflate menu
-            PopupMenu popup = new PopupMenu(mContext, view);
-            MenuInflater inflater = popup.getMenuInflater();
-            inflater.inflate(R.menu.menu_album, popup.getMenu());
-            popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
-            popup.show();
-        }
-*/
-        /**
-         * Click listener for popup menu items
-         */
-       /*
-        class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
 
-            public MyMenuItemClickListener() {
-            }
 
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_add_favourite:
-                        Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.action_play_next:
-                        Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show();
-                        return true;
-                    default:
-                }
-                return false;
-            }
-        }
-*/
         @Override
         public int getItemCount() {
             return mEventList.size();

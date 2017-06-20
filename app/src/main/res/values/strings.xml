@@ -105,5 +105,6 @@
     <string name="backdrop_subtitle">This season top 20 albums</string>
     <string name="event_date">Date</string>
     <string name="event_desc">Description</string>
+    <string name="event_organiser">Organiser</string>
     <string name="main_image_desc">Picture of sailing yacht Wishstream</string>
 </resources>

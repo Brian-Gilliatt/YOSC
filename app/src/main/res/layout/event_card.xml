@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
-
+        android:elevation="5dp"
 
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
@@ -17,17 +17,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/event_thumbnail"
+                android:layout_width="@dimen/event_image_height"
+                android:layout_height="@dimen/event_image_width" />
 
             <TextView
                 android:id="@+id/event_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:layout_toRightOf="@id/event_thumbnail"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
                 android:textSize="@dimen/songs_count"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
                 android:textColor="@color/album_title"/>
 
 
@@ -36,11 +40,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/event_date"
-                android:paddingBottom="@dimen/songs_count_padding_bottom"
+
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"/>
 
+            <TextView
+                android:id="@+id/event_organiser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/event_desc"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingBottom="@dimen/songs_count_padding_bottom"
 
+                android:textSize="@dimen/songs_count"
+
+            android:textColor="@color/organiser"/>
 
         </RelativeLayout>
 
