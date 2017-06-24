@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import com.bumptech.glide.Glide;
+
 /**
  * Created by Brian on 20/06/2017.
  */
@@ -24,7 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-//import com.bumptech.glide.Glide;
+
 
 import java.util.ArrayList;
 
@@ -77,7 +79,12 @@ import java.util.ArrayList;
             }
             holder.eventDate.setText(event.getDate());
             holder.desc.setText(event.getDescription());
-//            holder.thumbnail.setImageBitmap(@drawable/yosc_talk);
+//            holder.thumbnail.setImageBitmap(R.drawable.yosc_talk);
+            try {
+                Glide.with(mContext).load(R.drawable.yosc_talk).into((ImageView) holder.thumbnail );
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
         }

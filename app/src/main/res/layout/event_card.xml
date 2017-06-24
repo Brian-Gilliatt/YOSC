@@ -39,6 +39,7 @@
                 android:id="@+id/event_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/event_thumbnail"
                 android:layout_below="@id/event_date"
 
                 android:paddingLeft="@dimen/album_title_padding"
@@ -48,6 +49,7 @@
                 android:id="@+id/event_organiser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/event_thumbnail"
                 android:layout_below="@id/event_desc"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
