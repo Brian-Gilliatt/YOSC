@@ -99,7 +99,7 @@
     <string name="social_events_title">Social</string>
 
 
-    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_add_favourite">Boats attending</string>
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">LOVE MUSIC</string>
     <string name="backdrop_subtitle">This season top 20 albums</string>
@@ -107,4 +107,5 @@
     <string name="event_desc">Description</string>
     <string name="event_organiser">Organiser</string>
     <string name="main_image_desc">Picture of sailing yacht Wishstream</string>
+    <string name="title_activity_boats_attending">Boats Attending</string>
 </resources>

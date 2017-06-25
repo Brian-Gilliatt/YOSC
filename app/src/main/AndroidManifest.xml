@@ -18,9 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SocialEventsActivity"/>
-
-        <activity android:name=".SailingEventsActivity"/>
+        <activity android:name=".SocialEventsActivity" />
+        <activity android:name=".SailingEventsActivity" />
+        <activity
+            android:name=".BoatsAttendingActivity"
+            android:label="@string/title_activity_boats_attending"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

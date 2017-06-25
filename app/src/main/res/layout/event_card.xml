@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
-        android:elevation="5dp"
+
 
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/event_thumbnail"
-                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingLeft="@dimen/album_title_padding_left"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
                 android:textSize="@dimen/songs_count"
@@ -54,10 +54,21 @@
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingBottom="@dimen/songs_count_padding_bottom"
-
                 android:textSize="@dimen/songs_count"
+                android:textColor="@color/organiser"/>
 
-            android:textColor="@color/organiser"/>
+            <ImageView
+                android:id="@+id/overflow"
+                android:layout_width="@dimen/ic_album_overflow_width"
+                android:layout_height="@dimen/ic_album_overflow_height"
+
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+
+
+                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_more_vert_black_24dp" />
 
         </RelativeLayout>
 
@@ -66,3 +77,6 @@
 </LinearLayout>
 
     <!--        android:layout_margin="@dimen/card_margin" -->
+
+<!--  android:layout_below="@id/event_desc"  -->
+<!--  android:elevation="5dp"       -->

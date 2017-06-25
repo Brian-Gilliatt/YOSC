@@ -41,12 +41,14 @@ import java.util.ArrayList;
             public TextView eventDate;
             TextView desc;
             ImageView thumbnail;
+            ImageView moreVert;
 
             public MyViewHolder(View view) {
                 super(view);
                 eventDate = (TextView) view.findViewById(R.id.event_date);
                 desc = (TextView) view.findViewById(R.id.event_desc);
                 thumbnail = (ImageView)  view.findViewById(R.id.event_thumbnail);
+                moreVert = (ImageView)  view.findViewById(R.id.overflow);
             }
         }
 
@@ -85,6 +87,8 @@ import java.util.ArrayList;
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
+            holder.moreVert.setVisibility(View.INVISIBLE);
 
 
         }

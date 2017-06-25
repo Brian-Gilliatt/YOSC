@@ -1,5 +1,6 @@
 package uk.org.yosc.yosc;
 
+import android.content.Context;
 import android.content.Intent;
 
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ActionBarDrawerToggle mDrawerToggle;
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
+        mContext = this;
 
         android.support.v7.app.ActionBar ab = getSupportActionBar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
