@@ -26,42 +26,46 @@ import java.util.ArrayList;
 
 public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdapter.MyViewHolder> {
 
-        private Context mContext;
-        private ArrayList<Event> mEventList;
+    private Context mContext;
+    private ArrayList<Event> mEventList;
 
-        public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-            CardView cr;
-            public TextView eventDate;
-            TextView desc;
-            TextView organiser;
-            public ImageView thumbnail, overflow;
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-            public MyViewHolder(View view) {
-                super(view);
+        public static View mItemView;
+        public static CardView mCardView;
+        public static TextView eventDate;
+
+        TextView desc;
+        TextView organiser;
+        public ImageView thumbnail, overflow;
+
+        public MyViewHolder(View view) {
+            super(view);
+            mItemView = view;
 //                cr = (CardView) view.findViewById(R.id.card_view);
-                eventDate = (TextView) view.findViewById(R.id.event_date);
-                desc = (TextView) view.findViewById(R.id.event_desc);
-                organiser = (TextView) view.findViewById(R.id.event_organiser);
+            eventDate = (TextView) view.findViewById(R.id.event_date);
+            desc = (TextView) view.findViewById(R.id.event_desc);
+            organiser = (TextView) view.findViewById(R.id.event_organiser);
 
 //                thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
-                overflow = (ImageView) view.findViewById(R.id.overflow);
-            }
+            overflow = (ImageView) view.findViewById(R.id.overflow);
         }
+    }
 
 
-        public SailingEventsAdapter(Context mContext, ArrayList<Event> eventsList) {
-            this.mContext = mContext;
-            this.mEventList = eventsList;
-        }
+    public SailingEventsAdapter(Context mContext, ArrayList<Event> eventsList) {
+        this.mContext = mContext;
+        this.mEventList = eventsList;
+    }
 
-        @Override
-        public SailingEventsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-           View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.event_card, parent, false);
+    @Override
+    public SailingEventsAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.event_card, parent, false);
 
-            return new MyViewHolder(itemView);
-        }
+        return new MyViewHolder(itemView);
+    }
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
@@ -69,39 +73,45 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
     }
 
 
-
-        @Override
-        public void onBindViewHolder(final MyViewHolder holder, int position) {
-            Boolean error;
-            Event event = mEventList.get(position);
-            if ((position < 0 ) || (position > 1))
-            {
-                error = true;
-            }
-                holder.eventDate.setText(event.getDate());
-                holder.desc.setText(event.getDescription());
-                holder.organiser.setText(event.getOrganizer());
-
-
-
-            // loading album cover using Glide library
-//            Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
-
-            holder.overflow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    showPopupMenu(holder.overflow);
-                }
-            });
-
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        Boolean error;
+        Event event = mEventList.get(position);
+        if ((position < 0) || (position > 1)) {
+            error = true;
         }
 
+        holder.itemView.setTag(position);
+
+        holder.eventDate.setText(event.getDate());
+        holder.desc.setText(event.getDescription());
+        holder.organiser.setText(event.getOrganizer());
+
+
+        // loading album cover using Glide library
+//            Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
+
+        holder.overflow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+                showPopupMenu(holder.overflow);
+            }
+        });
+
+    }
 
 
     /**
      * Showing popup menu when tapping on 3 dots
      */
     private void showPopupMenu(View view) {
+
+
+
+
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
@@ -126,7 +136,22 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
             switch (menuItem.getItemId()) {
                 case R.id.action_add_favourite:
 
+
+                    int position  = (int)MyViewHolder.mItemView.getTag();
+                    Event e = mEventList.get(position);
+
+                    String eDate = e.getDate();
+
+                    CharSequence c = MyViewHolder.eventDate.getText();
+                    final StringBuilder sb = new StringBuilder(c.length());
+                    sb.append(c);
+                    String rallyDate = sb.toString();
+
+
                     Intent boatsAttendingIntent = new Intent(context, BoatsAttendingActivity.class);
+
+                    boatsAttendingIntent.putExtra("uk.org.yosc.yosc.eventDate", rallyDate);
+
                     //           EditText editText = (EditText) findViewById(R.id.editText);
                     //           String message = editText.getText().toString();
                     //           intent.putExtra(EXTRA_MESSAGE, message);
@@ -147,10 +172,9 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
     }
 
 
-
-        @Override
-        public int getItemCount() {
-            return mEventList.size();
-        }
+    @Override
+    public int getItemCount() {
+        return mEventList.size();
     }
+}
 
