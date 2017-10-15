@@ -171,7 +171,7 @@ public class BoatsAttendingActivity extends AppCompatActivity {
                 int l = x.length();
 
                 String[] words1 = split(x, ",");
-                if (words1.length < 5  ) continue;
+                if (words1.length < 5) continue;
                 String a = words1[0];
                 if (a.length() > 5) {
                     String b = words1[1];
@@ -183,7 +183,19 @@ public class BoatsAttendingActivity extends AppCompatActivity {
                     Participant p = new Participant(b, c, d, e);
                     participants.add(p);
                 }
+                if (words1.length > 8) {
+ //                   String a1 = words1[8];
+ //                   if (a1.length() > 5) {
+                        String b = words1[8];
+                        String c = words1[9];
+                        String d = words1[10];
+                        String e = words1[11];
+                        String f = words1[12];
 
+                        Participant p1 = new Participant(b, c, d, e);
+                        participants.add(p1);
+//                    }
+                }
             }
         } catch (Exception ex) {
             String msg = ex.getMessage();

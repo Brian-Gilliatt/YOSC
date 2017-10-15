@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 //import com.bumptech.glide.Glide;
 
@@ -43,12 +42,10 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
         public MyViewHolder(View view) {
             super(view);
             mItemView = view;
-//                cr = (CardView) view.findViewById(R.id.card_view);
             eventDate = (TextView) view.findViewById(R.id.event_date);
             desc = (TextView) view.findViewById(R.id.event_desc);
             organiser = (TextView) view.findViewById(R.id.event_organiser);
 
-//                thumbnail = (ImageView) view.findViewById(R.id.thumbnail);
             overflow = (ImageView) view.findViewById(R.id.overflow);
         }
     }
@@ -96,27 +93,26 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
             public void onClick(View view) {
 
 
+     //           int tag = (int)holder.overflow,holder.itemView.getTag();
+                int position = (int)holder.itemView.getTag();
 
-                showPopupMenu(holder.overflow);
+
+                showPopupMenu(view,position);
             }
         });
 
     }
 
-
     /**
      * Showing popup menu when tapping on 3 dots
      */
-    private void showPopupMenu(View view) {
-
-
-
+    private void showPopupMenu(View view, int position) {
 
         // inflate menu
         PopupMenu popup = new PopupMenu(mContext, view);
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.menu_album, popup.getMenu());
-        popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
+        popup.setOnMenuItemClickListener(new MyMenuItemClickListener(position));
         popup.show();
     }
 
@@ -124,8 +120,9 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
      * Click listener for popup menu items
      */
     class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
-
-        public MyMenuItemClickListener() {
+        int mPosition = -1;
+        public MyMenuItemClickListener(int position) {
+            mPosition = position;
         }
 
         @Override
@@ -134,10 +131,11 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
             Context context = MainActivity.mContext;
 
             switch (menuItem.getItemId()) {
-                case R.id.action_add_favourite:
+                case R.id.boats_attending:
 
 
-                    int position  = (int)MyViewHolder.mItemView.getTag();
+//                    int position  = (int)MyViewHolder.mItemView.getTag();
+                    int position  = mPosition;
                     Event e = mEventList.get(position);
 
                     String eDate = e.getDate();
