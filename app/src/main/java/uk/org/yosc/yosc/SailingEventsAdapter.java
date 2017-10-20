@@ -138,18 +138,18 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
                     int position  = mPosition;
                     Event e = mEventList.get(position);
 
-                    String eDate = e.getDate();
-
+//                    String eDate = e.getDate();
+/*
                     CharSequence c = MyViewHolder.eventDate.getText();
                     final StringBuilder sb = new StringBuilder(c.length());
                     sb.append(c);
                     String rallyDate = sb.toString();
-
+*/
 
                     Intent boatsAttendingIntent = new Intent(context, BoatsAttendingActivity.class);
 
-                    boatsAttendingIntent.putExtra("uk.org.yosc.yosc.eventDate", rallyDate);
-
+                    boatsAttendingIntent.putExtra("uk.org.yosc.yosc.eventDate", e.getDate());
+//                    boatsAttendingIntent.SetEvent(event);
                     //           EditText editText = (EditText) findViewById(R.id.editText);
                     //           String message = editText.getText().toString();
                     //           intent.putExtra(EXTRA_MESSAGE, message);
