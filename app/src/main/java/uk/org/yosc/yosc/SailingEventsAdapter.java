@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import android.content.ComponentName;
+
 //import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
@@ -134,35 +136,24 @@ public class SailingEventsAdapter extends RecyclerView.Adapter<SailingEventsAdap
                 case R.id.boats_attending:
 
 
-//                    int position  = (int)MyViewHolder.mItemView.getTag();
                     int position  = mPosition;
                     Event e = mEventList.get(position);
 
-//                    String eDate = e.getDate();
-/*
-                    CharSequence c = MyViewHolder.eventDate.getText();
-                    final StringBuilder sb = new StringBuilder(c.length());
-                    sb.append(c);
-                    String rallyDate = sb.toString();
-*/
 
                     Intent boatsAttendingIntent = new Intent(context, BoatsAttendingActivity.class);
+                    boatsAttendingIntent.putExtra("parcel_data", e);
+//                    boatsAttendingIntent.putExtra("uk.org.yosc.yosc.event", e);
+//                    String packageName = context.getPackageName();
+//                    String className = Event.class.getName();
+//                    ComponentName comp = new ComponentName(packageName, className);
 
-                    boatsAttendingIntent.putExtra("uk.org.yosc.yosc.eventDate", e.getDate());
+//                    boatsAttendingIntent.setComponent(comp);
 //                    boatsAttendingIntent.SetEvent(event);
-                    //           EditText editText = (EditText) findViewById(R.id.editText);
-                    //           String message = editText.getText().toString();
                     //           intent.putExtra(EXTRA_MESSAGE, message);
                     context.startActivity(boatsAttendingIntent);
 
 
-//                    Toast.makeText(mContext, "Add to favourite", Toast.LENGTH_SHORT).show();
                     return true;
- /*
-                case R.id.action_play_next:
-                    Toast.makeText(mContext, "Play next", Toast.LENGTH_SHORT).show();
-                    return true;
- */
                 default:
             }
             return false;

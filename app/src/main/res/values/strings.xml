@@ -108,6 +108,10 @@
     <string name="event_organiser">Organiser</string>
     <string name="main_image_desc">Picture of sailing yacht Wishstream</string>
     <string name="title_activity_boats_attending">Boats Attending</string>
+    <string name="parcel_data">parcel_data</string>
+    parcel_data
+
+
     <string name="boats_attending">.,,,,,,,"
 "
 .,,,,,,,"
